@@ -1,11 +1,16 @@
 <template>
   <RouterView />
+  <button @click="prefetch">prefetch</button>
 </template>
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-
-const modules = import.meta.glob("/src/**/*.vue");
-console.log(
-  modules["/src/views/TableView.vue"]().then((mod) => console.log(mod))
-);
+const prefetch = () => {
+  const globModules = import.meta.glob("/src/views/*.vue");
+  Object.entries(globModules).forEach(([path, globModule]) => {
+    console.log(path, globModule);
+    globModule().then((mod) => {
+      console.log(path + "模块内容", mod.default);
+    });
+  });
+};
 </script>
