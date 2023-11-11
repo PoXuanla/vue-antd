@@ -1,0 +1,1 @@
+import{_ as e,r as _}from"./index-8c15ac1b.js";const o={__name:"HelloWorld",setup(d){return _(0),(l,r)=>" This is HelloWorld Page.122 "}},t=e(o,[["__scopeId","data-v-3de03dd1"]]);export{t as default};
